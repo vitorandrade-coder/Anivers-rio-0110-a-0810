@@ -1,0 +1,8 @@
+{
+  "name": "Cópia Dashboard Campanha de Aniversário - Assaí Atacadista",
+  "description": "Dashboard analítico interativo e dinâmico de performance de redes sociais para a Campanha de Aniversário do Assaí Atacadista.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
