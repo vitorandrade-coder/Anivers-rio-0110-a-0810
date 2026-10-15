@@ -109,16 +109,18 @@ export default function App() {
           dataInteracoes.push(items.reduce((acc, p) => acc + p.interacoes, 0));
         });
       } else {
-        // Mostra evolução diária de 01/10 a 12/10
+        // Mostra evolução diária de 01/10 a 14/10
         const dates = [
           '2026-10-01', '2026-10-02', '2026-10-03', '2026-10-04',
           '2026-10-05', '2026-10-06', '2026-10-07', '2026-10-08',
-          '2026-10-09', '2026-10-10', '2026-10-11', '2026-10-12'
+          '2026-10-09', '2026-10-10', '2026-10-11', '2026-10-12',
+          '2026-10-13', '2026-10-14'
         ];
         labels = [
           '01/10 (Qui)', '02/10 (Sex)', '03/10 (Sáb)', '04/10 (Dom)',
           '05/10 (Seg)', '06/10 (Ter)', '07/10 (Qua)', '08/10 (Qui)',
-          '09/10 (Sex)', '10/10 (Sáb)', '11/10 (Dom)', '12/10 (Seg)'
+          '09/10 (Sex)', '10/10 (Sáb)', '11/10 (Dom)', '12/10 (Seg)',
+          '13/10 (Ter)', '14/10 (Qua)'
         ];
         dates.forEach(d => {
           const items = filteredPosts.filter(p => p.data === d);
@@ -411,12 +413,13 @@ export default function App() {
             {/* Logos & Título */}
             <div className="space-y-3">
               <div className="flex items-center gap-3 sm:gap-4 flex-wrap">
-                {/* Logo Assaí Atacadista */}
-                <div className="flex items-center">
+                {/* Lockup Oficial: Assaí Atacadista | Mega Mídia */}
+                <div className="flex items-center gap-2.5 sm:gap-3.5 bg-white py-1 px-1.5 rounded-lg">
+                  {/* Logo Assaí Atacadista */}
                   <img
-                    src="https://i.imgur.com/ihchsJt.png"
-                    alt="Logo Cliente - Assaí Atacadista"
-                    className="h-8 sm:h-10 w-auto object-contain max-w-[140px]"
+                    src="/assai-logo.svg"
+                    alt="Logo Assaí Atacadista"
+                    className="h-10 sm:h-12 w-auto object-contain max-w-[145px]"
                     onError={(e) => {
                       (e.target as HTMLElement).style.display = 'none';
                       const fallback = document.getElementById('clientLogoFallback');
@@ -426,16 +429,15 @@ export default function App() {
                   <span id="clientLogoFallback" className="hidden items-center px-2.5 py-1 rounded text-xs font-bold bg-[#005599] text-white tracking-wide">
                     ASSAÍ ATACADISTA
                   </span>
-                </div>
 
-                <div className="h-6 w-px bg-gray-200"></div>
+                  {/* Divisor Vertical */}
+                  <div className="h-8 sm:h-10 w-px bg-slate-300"></div>
 
-                {/* Logo Agência */}
-                <div className="flex items-center">
+                  {/* Novo Símbolo Oficial Mega Mídia (M Colorido) */}
                   <img
-                    src="https://i.imgur.com/lAyMWKF.png"
-                    alt="Logo Agência"
-                    className="h-7 sm:h-9 w-auto object-contain max-w-[130px]"
+                    src="/megamidia-m.png"
+                    alt="Logo Mega Mídia - Símbolo Oficial"
+                    className="h-9 sm:h-11 w-auto object-contain max-w-[50px] drop-shadow-2xs"
                     onError={(e) => {
                       (e.target as HTMLElement).style.display = 'none';
                       const fallback = document.getElementById('agencyLogoFallback');
@@ -443,14 +445,14 @@ export default function App() {
                     }}
                   />
                   <span id="agencyLogoFallback" className="hidden items-center px-2 py-0.5 rounded text-xs font-bold bg-slate-800 text-white tracking-wide">
-                    AGÊNCIA
+                    MEGA MÍDIA
                   </span>
                 </div>
 
                 {/* Tag de Contexto Atualizada */}
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold bg-blue-50 text-[#005599] border border-blue-200 shadow-2xs">
                   <span className="w-2 h-2 rounded-full bg-[#005599] animate-pulse"></span>
-                  Base Oficial Atualizada: (01 a 12/10/2026)
+                  Base Oficial Atualizada: (01 a 14/10/2026)
                 </span>
               </div>
 
@@ -461,7 +463,7 @@ export default function App() {
                 <p className="text-xs text-slate-500 mt-1 flex items-center gap-2 flex-wrap">
                   <span>Grupo Ativo: <strong className="text-slate-700">ANIVERSÁRIO ASSAÍ 2026</strong></span>
                   <span>·</span>
-                  <span>Período: <strong className="text-slate-700">01 a 12/10/2026</strong></span>
+                  <span>Período: <strong className="text-slate-700">01 a 14/10/2026</strong></span>
                   <span>·</span>
                   <span>Canais: <strong className="text-slate-700">Instagram Feed, Stories, Facebook e TikTok</strong></span>
                 </p>
@@ -505,7 +507,7 @@ export default function App() {
                 onChange={(e) => setDateFilter(e.target.value)}
                 className="w-full bg-gray-50 border border-gray-200 text-slate-700 text-sm rounded-lg px-3 py-2 pr-8 focus:outline-none focus:ring-2 focus:ring-[#005599] focus:bg-white transition-colors cursor-pointer"
               >
-                <option value="all">Todo o Período: Campanha de Aniversário (01 a 12/10/2026)</option>
+                <option value="all">Todo o Período: Campanha de Aniversário (01 a 14/10/2026)</option>
                 <option value="2026-10-01">01/10/2026 · Quinta-feira (Lançamento Oficial)</option>
                 <option value="2026-10-02">02/10/2026 · Sexta-feira</option>
                 <option value="2026-10-03">03/10/2026 · Sábado</option>
@@ -517,7 +519,9 @@ export default function App() {
                 <option value="2026-10-09">09/10/2026 · Sexta-feira (Economizasso / Institucional)</option>
                 <option value="2026-10-10">10/10/2026 · Sábado (Ganhadores & Baratasso)</option>
                 <option value="2026-10-11">11/10/2026 · Domingo (Três Coisas / Mecânica)</option>
-                <option value="2026-10-12">12/10/2026 · Segunda-feira (Dia das Crianças / Último Dia)</option>
+                <option value="2026-10-12">12/10/2026 · Segunda-feira (Dia das Crianças / Economizasso)</option>
+                <option value="2026-10-13">13/10/2026 · Terça-feira (Perfis Fakes / Ganhadores)</option>
+                <option value="2026-10-14">14/10/2026 · Quarta-feira (Vantagens MP / Prêmios)</option>
               </select>
             </div>
 
@@ -531,10 +535,10 @@ export default function App() {
                 className="w-full bg-gray-50 border border-gray-200 text-slate-700 text-sm rounded-lg px-3 py-2 pr-8 focus:outline-none focus:ring-2 focus:ring-[#005599] focus:bg-white transition-colors cursor-pointer"
               >
                 <option value="all">Redes Sociais (Todas as 4 Redes · {totals.totalPosts} Posts)</option>
-                <option value="Instagram Feed">Instagram Feed (22 Posts · 13 Reels e 9 Carrosséis)</option>
-                <option value="Instagram Stories">Instagram Stories (121 Stories)</option>
-                <option value="Facebook">Facebook (16 Posts)</option>
-                <option value="Tiktok">TikTok (16 Vídeos Curtos)</option>
+                <option value="Instagram Feed">Instagram Feed (25 Posts · 15 Reels e 10 Carrosséis)</option>
+                <option value="Instagram Stories">Instagram Stories (159 Stories)</option>
+                <option value="Facebook">Facebook (20 Posts)</option>
+                <option value="Tiktok">TikTok (19 Vídeos Curtos)</option>
               </select>
             </div>
 
@@ -697,7 +701,7 @@ export default function App() {
           <div className="px-5 sm:px-6 py-4 border-b border-gray-100 flex items-center justify-between">
             <div>
               <h2 className="text-base font-bold text-[#005599] tracking-tight">
-                Visão Consolidada por Rede Social (01 a 12/10/2026)
+                Visão Consolidada por Rede Social (01 a 14/10/2026)
               </h2>
               <p className="text-xs text-slate-500 mt-0.5">
                 Métricas oficiais por canal na Campanha de Aniversário 2026 ({totals.totalPosts} Publicações)
@@ -920,13 +924,13 @@ export default function App() {
               {/* Insight Box Oficial */}
               <div className="mt-3 p-3 bg-blue-50/70 border border-blue-100 rounded-lg text-xs text-slate-700 leading-relaxed">
                 <span className="font-bold text-[#005599]">Insight de Eficiência:</span> 
-                O <strong>Instagram Feed</strong> concentrou o maior volume de impactos (<strong>5.871.995</strong>) e interações (<strong>251.705 com 223.966 curtidas</strong>), sustentando taxa ponderada de <strong>5,89%</strong>. O <strong>Instagram Stories</strong> foi o grande motor de tráfego qualificado com expressivos <strong>31.163 cliques no link</strong> em 121 stories. O <strong>Facebook</strong> consolidou 259.664 impactos e 4.882 interações com <strong>2,56%</strong> de taxa ponderada, e o <strong>TikTok</strong> registrou <strong>2,97%</strong> de taxa ponderada nos 16 vídeos curtos de ofertas.
+                O <strong>Instagram Feed</strong> concentrou o maior volume de impactos (<strong>6.041.298</strong>) e interações (<strong>252.970 com 224.981 curtidas</strong>), sustentando taxa ponderada de <strong>5,80%</strong>. O <strong>Instagram Stories</strong> foi o grande motor de tráfego qualificado com expressivos <strong>40.234 cliques no link</strong> em 159 stories. O <strong>Facebook</strong> consolidou 291.172 impactos e 5.446 interações com <strong>2,53%</strong> de taxa ponderada, e o <strong>TikTok</strong> registrou <strong>3,09%</strong> de taxa ponderada nos 19 vídeos curtos de ofertas.
               </div>
             </div>
           </div>
         </section>
 
-        {/* 6. TABELA COMPLETA COM AS 175 PUBLICAÇÕES */}
+        {/* 6. TABELA COMPLETA COM AS 223 PUBLICAÇÕES */}
         <section id="sectionPosts" className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden print-break-inside-avoid">
           <div className="px-5 sm:px-6 py-4 border-b border-gray-100 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
             <div>
@@ -937,7 +941,7 @@ export default function App() {
                 </h2>
               </div>
               <p className="text-xs text-slate-500 mt-0.5">
-                Registros individuais cadastrados na Campanha de Aniversário 2026 (01 a 12/10/2026)
+                Registros individuais cadastrados na Campanha de Aniversário 2026 (01 a 14/10/2026)
               </p>
             </div>
 
@@ -997,7 +1001,10 @@ export default function App() {
 
                       {/* Data */}
                       <td className="py-3 px-3 text-xs whitespace-nowrap">
-                        <span className="font-semibold text-slate-800 block">{post.dataDisplay}</span>
+                        <span className="font-semibold text-slate-800 block">
+                          {post.dataDisplay}
+                          {post.horario && <span className="text-[10px] text-slate-400 font-normal ml-1">· {post.horario}</span>}
+                        </span>
                         <span className="text-[10px] text-slate-400 capitalize block">{post.diaSemana}</span>
                       </td>
 
@@ -1062,7 +1069,12 @@ export default function App() {
           <div className="flex items-center gap-2">
             <span className="font-bold text-[#005599]">ASSAÍ ATACADISTA</span>
             <span>·</span>
-            <span>Campanha de Aniversário 2026 (01 a 12/10/2026) · Monitoramento Oficial</span>
+            <span className="inline-flex items-center gap-1.5">
+              <img src="/megamidia-m.png" alt="Mega Mídia" className="w-3.5 h-3.5 object-contain inline" />
+              <span>Mega Mídia Group</span>
+            </span>
+            <span>·</span>
+            <span>Campanha de Aniversário 2026 (01 a 14/10/2026) · Monitoramento Oficial</span>
           </div>
           <div className="flex items-center gap-4 font-semibold">
             <button
@@ -1105,7 +1117,7 @@ export default function App() {
             </div>
 
             <p className="text-xs text-slate-500">
-              {totals.totalPosts} publicações consolidadas cobrindo Instagram Feed, Instagram Stories, Facebook e TikTok (01/10 a 12/10/2026).
+              {totals.totalPosts} publicações consolidadas cobrindo Instagram Feed, Instagram Stories, Facebook e TikTok (01/10 a 14/10/2026).
             </p>
 
             <div className="bg-slate-900 text-slate-200 p-3.5 rounded-lg text-[11px] font-mono overflow-x-auto max-h-48 leading-relaxed">
@@ -1166,7 +1178,7 @@ export default function App() {
             <div className="space-y-3 text-xs text-slate-600 max-h-80 overflow-y-auto pr-1">
               <div>
                 <h4 className="font-bold text-slate-900 text-sm">Impactos (Impressões)</h4>
-                <p>Número total de vezes que as publicações, vídeos e stories foram exibidos aos usuários ({formatNumber(totals.impressoes)} impactos no consolidado de 01 a 12/10).</p>
+                <p>Número total de vezes que as publicações, vídeos e stories foram exibidos aos usuários ({formatNumber(totals.impressoes)} impactos no consolidado de 01 a 14/10).</p>
               </div>
               <div>
                 <h4 className="font-bold text-slate-900 text-sm">Alcance Consolidado</h4>
